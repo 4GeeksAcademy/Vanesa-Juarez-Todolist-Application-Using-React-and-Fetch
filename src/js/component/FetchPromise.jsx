@@ -4,13 +4,17 @@ function FetchPromise() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
 
-    fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
-      .then(response => response.json())
+    // Estos parametros no son necesarios, por default es 'GET'
+
+
+    // const requestOptions = {
+    //   method: 'GET',
+    //   redirect: 'follow'
+    // };
+
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(async response => await response.json()) // ES NECESARIO EL ASYNC Y EL AWAIT AQUI???? PODRIA SER INTERESANTE? 
       .then(result => setData(result))
       .catch(error => console.log('Error:', error));
   }, []);
