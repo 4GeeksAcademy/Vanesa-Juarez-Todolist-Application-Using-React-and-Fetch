@@ -1,12 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap");
+:root {
+  background-color: #a419a6;
+  font-family: "Barlow Condensed", sans-serif;
+}
 
-/* 
+* {
+  color: rgb(95, 89, 129);
+  font-family: "Barlow Condensed", sans-serif;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.bg-div {
+  background-color: #a419a6;
+}
 
-*/
+.bg-box {
+  border-radius: 30px;
+  background: #c6bcfb;
+  box-shadow: 1px 1px 5px #7f78a1, 1px 1px 5px #ffffff;
+}
+
+/******************* TITLE *************************************/
+
+.bg-title-off {
+  border-radius: 30px;
+  background: linear-gradient(225deg, #d4c9ff, #b2a9e2);
+  box-shadow: -25px 25px 50px #7f78a1, 25px -25px 50px #ffffff;
+}
+
+.bg-title-on {
+  border-radius: 30px;
+  background: #c6bcfb;
+  box-shadow: inset -25px 25px 50px #7f78a1, inset 25px -25px 50px #ffffff;
+}
+
+/******************* CHECKBOX *************************************/
+
+/* The switch - the box around the slider */
+.container {
+  width: 65px;
+  height: 31px;
+  position: relative;
+}
+
+/* Hide default HTML checkbox */
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.switch {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  border-radius: 16px;
+  background: #faf4fa;
+  box-shadow: inset -7px 7px 15px #646264, inset 7px -7px 15px #ffffff;
+}
+
+/* The slider */
+.slider {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: calc(50% - 27px / 2 - 10px);
+  top: calc(50% - 27px / 2);
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+
+  border-radius: 37px;
+  background: linear-gradient(225deg, #d4c9ff, #b2a9e2);
+  box-shadow: 6px 6px 12px #8780ab, -1px -1px 12px #ffffff;
+}
+
+.checkbox:checked + .switch {
+  border-radius: 16px;
+  background: #a419a6;
+  box-shadow: inset 7px -7px 15px #540d55, inset -7px 7px 15px #f425f7;
+}
+
+.checkbox:checked + .switch .slider {
+  left: calc(50% - 27px / 2 + 10px);
+  top: calc(50% - 27px / 2);
+}
+
+/******************* INPUT *************************************/
+
+input {
+  border: none;
+  outline: none;
+}
+
+.input-off {
+  border-radius: 30px;
+  background: #c6bcfb;
+  box-shadow: -11px 11px 21px #7b759c, 11px -11px 21px #ffffff;
+}
+
+.input-on {
+  border-radius: 30px;
+  background: #c6bcfb;
+  box-shadow: inset -11px 11px 21px #7b759c, inset 11px -11px 21px #ffffff;
+}
+
+input::placeholder {
+  color: rgb(95, 89, 129);
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+/******************* LIST *************************************/
+
+.list {
+  border-radius: 30px;
+  background: #c6bcfb;
+  box-shadow: inset -25px 25px 50px #7f78a1, inset 25px -25px 50px #ffffff;
+}
+
+button {
+  border-radius: 15px;
+  background: linear-gradient(225deg, #b2a9e2, #d4c9ff);
+  box-shadow: -11px 11px 21px #7b759c, 11px -11px 21px #ffffff;
+}
