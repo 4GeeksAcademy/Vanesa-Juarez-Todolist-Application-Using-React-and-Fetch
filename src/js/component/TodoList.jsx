@@ -5,7 +5,7 @@ function TodoList() {
   const [todoInput, setTodoInput] = useState("");
 
   // List of tasks:
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null); //or [] but better null to avoid bug
 
   // Number of items to count them at the bottom:
   const [items, setItems] = useState(0);
@@ -42,11 +42,13 @@ function TodoList() {
   // };
 
   const fetchTodos = () => {
-    fetch("https://playground.4geeks.com/apis/fake/todos/user/vanesascode")
-      .then((response) => response.json())
-      .then((result) => setData(result))
-      // .then(data => console.log(data))
-      .catch((error) => console.log("Error:", error));
+    setTimeout(() => {
+      fetch("https://playground.4geeks.com/apis/fake/todos/user/vanesascode")
+        .then((response) => response.json())
+        .then((result) => setData(result))
+        // .then(data => console.log(data))
+        .catch((error) => console.log("Error:", error));
+    }, 3000);
   };
 
   useEffect(() => {
@@ -110,8 +112,10 @@ function TodoList() {
   //Counter of number of tasks:
 
   useEffect(() => {
+    // if (data) {
     const itemsLeft = data.length;
     setItems(itemsLeft);
+    // }
   }, [data]);
 
   /////////////////////////////////////////////////////////////////////////////////
@@ -143,6 +147,9 @@ function TodoList() {
         {/* tasks + counter*/}
         <div className="list p-3">
           {/* tasks*/}
+
+          {!data && <h1>LOADING...</h1>}
+          {data.length === 0 && <h1>NO TASKS</h1>}
           {data &&
             data.map((task, index) => (
               <div
@@ -180,3 +187,8 @@ function TodoList() {
 }
 
 export default TodoList;
+
+//CONSIDER ALL THE OPTIONS
+// null === loading
+// [] === empty lists with tasks
+// [dsa,dsa,dsa] === list with tasks

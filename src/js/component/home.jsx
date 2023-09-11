@@ -3,6 +3,7 @@ import TodoList from "./TodoList";
 
 function Home() {
   const [titleOn, setTitleOn] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <>
@@ -28,8 +29,13 @@ function Home() {
 
             <div className="d-flex flex-column align-items-center">
               <div className="container ">
-                <input type="checkbox" class="checkbox" id="checkbox" />
-                <label className="switch" for="checkbox">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="checkbox"
+                  onClick={() => setDarkMode(!darkMode)}
+                />
+                <label className="switch" htmlFor="checkbox">
                   <span className="slider"></span>
                 </label>
               </div>
