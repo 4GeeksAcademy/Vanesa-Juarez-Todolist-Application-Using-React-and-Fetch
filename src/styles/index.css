@@ -147,10 +147,13 @@ input {
 }
 
 input::placeholder {
-  color: rgb(95, 89, 129);
+  color: #3d3c3c;
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 600;
-  text-align: center;
+}
+
+.input-dark::placeholder {
+  color: rgb(113, 108, 142);
 }
 
 /******************* LIST *************************************/
@@ -199,9 +202,9 @@ input::placeholder {
 }
 
 .items-left {
-  color: rgb(95, 89, 129);
+  color: #3d3c3c;
 }
 
 .items-left-dark {
-  color: rgb(95, 89, 129);
+  color: rgb(113, 108, 142);
 }

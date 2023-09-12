@@ -131,7 +131,7 @@ function TodoList({ darkMode }) {
           type="text"
           value={todoInput}
           onChange={(e) => setTodoInput(e.target.value)}
-          placeholder="Click here and type your tasks to be done"
+          placeholder="Add here your tasks to be done"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               addTodo();
@@ -157,7 +157,7 @@ function TodoList({ darkMode }) {
               Loading tasks...
             </div>
           )}
-          {/* {data.length === 0 && <h1>NO TASKS</h1>} --- It gives console error, because it never has 0 tasks */}
+          {/* {data.length === 0 && <h1>NO TASKS</h1>} --- It gives console error, because the API never has 0 tasks */}
           {data &&
             data.map((task, index) => (
               <div
