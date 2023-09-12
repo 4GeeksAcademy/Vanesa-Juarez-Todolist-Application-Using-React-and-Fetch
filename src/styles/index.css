@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600&display=swap");
 :root {
-  background-color: #a419a6;
+  background-color: rgb(95, 89, 129);
   font-family: "Barlow Condensed", sans-serif;
 }
 
@@ -10,7 +10,9 @@
 }
 
 .bg-div {
-  background-color: #a419a6;
+  background-color: rgb(95, 89, 129);
+  border: none;
+  outline: none;
 }
 
 .bg-box {
@@ -19,7 +21,17 @@
   box-shadow: 1px 1px 5px #7f78a1, 1px 1px 5px #ffffff;
 }
 
+.bg-box-dark {
+  background-color: #000000;
+  border-radius: 30px;
+}
+
 /******************* TITLE *************************************/
+
+.title {
+  border: none;
+  outline: none;
+}
 
 .bg-title-off {
   border-radius: 30px;
@@ -28,17 +40,29 @@
 }
 
 .bg-title-on {
-  border-radius: 30px;
+  border-radius: 20px;
   background: #c6bcfb;
   box-shadow: inset -25px 25px 50px #7f78a1, inset 25px -25px 50px #ffffff;
 }
 
+.bg-title-dark {
+  color: white;
+  border-radius: 20px;
+  background: #525252;
+  box-shadow: inset 25px -25px 50px #000000, inset -25px 25px 50px #616060;
+  outline: none;
+}
+
 /******************* CHECKBOX *************************************/
+
+.checkbox-title-dark {
+  color: white;
+}
 
 /* The switch - the box around the slider */
 .container {
   width: 65px;
-  height: 31px;
+  height: 29px;
   position: relative;
 }
 
@@ -62,25 +86,32 @@
   box-shadow: inset -7px 7px 15px #646264, inset 7px -7px 15px #ffffff;
 }
 
-/* The slider */
+/* The slider - the ball */
 .slider {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   position: absolute;
   left: calc(50% - 27px / 2 - 10px);
   top: calc(50% - 27px / 2);
   transition: all 0.2s ease-out;
   cursor: pointer;
+}
 
+.slider-light {
   border-radius: 37px;
   background: linear-gradient(225deg, #d4c9ff, #b2a9e2);
   box-shadow: 6px 6px 12px #8780ab, -1px -1px 12px #ffffff;
 }
 
+.slider-dark {
+  border-radius: 37px;
+  background: linear-gradient(45deg, #bdbcc0, #0a0a0a);
+}
+
 .checkbox:checked + .switch {
   border-radius: 16px;
-  background: #a419a6;
-  box-shadow: inset 7px -7px 15px #540d55, inset -7px 7px 15px #f425f7;
+  background: #faf4fa;
+  box-shadow: inset -7px 7px 15px #646264, inset 7px -7px 15px #ffffff;
 }
 
 .checkbox:checked + .switch .slider {
@@ -96,32 +127,81 @@ input {
 }
 
 .input-off {
-  border-radius: 30px;
+  border-radius: 20px;
   background: #c6bcfb;
   box-shadow: -11px 11px 21px #7b759c, 11px -11px 21px #ffffff;
 }
 
 .input-on {
-  border-radius: 30px;
+  border-radius: 20px;
   background: #c6bcfb;
   box-shadow: inset -11px 11px 21px #7b759c, inset 11px -11px 21px #ffffff;
+}
+
+.input-dark {
+  color: white;
+  border-radius: 20px;
+  background: #525252;
+  box-shadow: inset 25px -25px 50px #000000, inset -25px 25px 50px #616060;
+  outline: none;
 }
 
 input::placeholder {
   color: rgb(95, 89, 129);
   font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  text-align: center;
 }
 
 /******************* LIST *************************************/
 
+.loading-message {
+  color: rgb(95, 89, 129);
+}
+
+.loading-message {
+  color: white;
+}
+
 .list {
-  border-radius: 30px;
+  border-radius: 20px;
   background: #c6bcfb;
   box-shadow: inset -25px 25px 50px #7f78a1, inset 25px -25px 50px #ffffff;
 }
 
-button {
+.list-dark {
+  color: white;
+  border-radius: 20px;
+  background: #525252;
+  box-shadow: inset 25px -25px 50px #000000, inset -25px 25px 50px #616060;
+  outline: none;
+  border: none;
+}
+
+.task {
+  color: rgb(95, 89, 129);
+}
+
+.task-dark {
+  color: white;
+}
+
+.button {
   border-radius: 15px;
   background: linear-gradient(225deg, #b2a9e2, #d4c9ff);
-  box-shadow: -11px 11px 21px #7b759c, 11px -11px 21px #ffffff;
+  box-shadow: -11px 11px 21px #9c759a, 11px -11px 21px #ffffff;
+}
+
+.button-dark {
+  border-radius: 15px;
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.items-left {
+  color: rgb(95, 89, 129);
+}
+
+.items-left-dark {
+  color: rgb(95, 89, 129);
 }

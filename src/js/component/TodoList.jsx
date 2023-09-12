@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function TodoList() {
+function TodoList({ darkMode }) {
   // Every task:
   const [todoInput, setTodoInput] = useState("");
 
@@ -8,7 +8,7 @@ function TodoList() {
   const [data, setData] = useState(null); //or [] but better null to avoid bug
 
   // Number of items to count them at the bottom:
-  const [items, setItems] = useState(0);
+  const [items, setItems] = useState(null);
 
   // API REQUESTS: /////////////////////////////////////////////////////////
 
@@ -48,7 +48,7 @@ function TodoList() {
         .then((result) => setData(result))
         // .then(data => console.log(data))
         .catch((error) => console.log("Error:", error));
-    }, 3000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -112,10 +112,10 @@ function TodoList() {
   //Counter of number of tasks:
 
   useEffect(() => {
-    // if (data) {
-    const itemsLeft = data.length;
-    setItems(itemsLeft);
-    // }
+    if (data) {
+      const itemsLeft = data.length;
+      setItems(itemsLeft);
+    }
   }, [data]);
 
   /////////////////////////////////////////////////////////////////////////////////
@@ -124,14 +124,14 @@ function TodoList() {
 
   return (
     <>
-      <div className=" d-flex justify-content-start flex-column border-0 z-3 mt-5">
+      <div className=" d-flex justify-content-start flex-column border-0 z-3 mt-3 mt-md-5">
         {/* input*/}
 
         <input
           type="text"
           value={todoInput}
           onChange={(e) => setTodoInput(e.target.value)}
-          placeholder="What needs to be done?"
+          placeholder="Click here and type your tasks to be done"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               addTodo();
@@ -139,30 +139,42 @@ function TodoList() {
           }}
           onFocus={() => setInputOn(true)}
           onBlur={() => setInputOn(false)}
-          className={`mb-5 border-0 px-md-5 px-4 py-3 fs-2  ${
-            inputOn ? "input-on" : "input-off"
-          }`}
+          className={`mb-5 border-0 px-md-5 px-4 py-3 fs-2 ${
+            darkMode ? "input-dark" : "input-off"
+          } ${inputOn ? "input-on" : "input-off"}`}
         />
 
         {/* tasks + counter*/}
-        <div className="list p-3">
+        <div className={` ${darkMode ? "list-dark" : "list"} p-3`}>
           {/* tasks*/}
 
-          {!data && <h1>LOADING...</h1>}
-          {data.length === 0 && <h1>NO TASKS</h1>}
+          {!data && (
+            <div
+              className={`text-start ps-2 ps-md-4 fs-2 py-3 ${
+                darkMode ? "loading-message" : "loading-message-dark"
+              }`}
+            >
+              Loading tasks...
+            </div>
+          )}
+          {/* {data.length === 0 && <h1>NO TASKS</h1>} --- It gives console error, because it never has 0 tasks */}
           {data &&
             data.map((task, index) => (
               <div
                 key={index}
                 className=" w-full px-md-4 px-1 py-3 d-flex justify-content-between fs-2"
               >
-                <div className="me-5">{task.label}</div>
+                <div className={` ${darkMode ? "task-dark" : "task"} me-5`}>
+                  {task.label}
+                </div>
 
                 {/* erase button*/}
 
                 <div>
                   <button
-                    className="border-0 px-3"
+                    className={`border-0 px-3 ${
+                      darkMode ? "button-dark" : "button"
+                    }`}
                     onClick={() => deleteTodo(task)}
                   >
                     X
@@ -175,7 +187,11 @@ function TodoList() {
 
         <div className="d-flex justify-content-center mt-4  ">
           <div>
-            <h2 className="fw-bolder fs-2 ">
+            <h2
+              className={`fw-bolder fs-2 ${
+                darkMode ? "items-left-dark" : "items-left"
+              }`}
+            >
               {" "}
               {items} {items === 1 ? "Item" : "Items"} Left
             </h2>
